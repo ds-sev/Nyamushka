@@ -1,0 +1,24 @@
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background-color: aqua;
+  background-image: url('../../images/Pattern@2x-min.png');
+  background-position: center;
+}
+
+/*.page::after {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  content: '';*/
+/*  background: linear-gradient(black, transparent, black);*/
+/*}*/
+
+
+
+/*@media screen {*/
+/*  background-image: ;*/
+/*}*/
