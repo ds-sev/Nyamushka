@@ -4,49 +4,101 @@
   flex-grow: 1;
   /*position: relative;*/
   width: 320px;
-  height: 509px;
-  border-top-left-radius: 30px;
-  border-top-left-radius: 0;
-
+  height: 511px;
+  
 }
 
 .card__info-container {
   position: relative;
   flex-grow: 1;
-  /*border: 1px solid red;*/
   background-color: white;
   background-image: url('../../images/Photo-min.png');
   background-repeat: no-repeat;
   background-position: top 200px left -30px;
-  
-  border: 4px solid #E52E7A;
+  border: 4px solid #e52e7a;
   border-radius: 12px;
+  /*overflow: hidden;*/
+  clip-path: polygon(
+    /*top left 1*/ 42px 0%,
+            /*top left 2*/ 100% 0,
+            /*top right 1*/ 100% 100%,
+            /*bottom right 2*/ 100% 100%,
+            /*bottom right 2*/ 0 100%,
+            /*bottom left*/ 0% 42px
+  );
+  
 }
 
+.card__info-container:after {
+  border-top: 5px solid #e52e7a;
+  position: absolute;
+  content: '';
+  top: 10px;
+  left: 0;
+  width: 82px;
+  height: 82px;
+  rotate: -45deg;
+  background-color: transparent;
+}
+
+.card-info__container {
+  margin: 17px 43px;
+}
 
 .card__description {
   display: flex;
   align-items: end;
   justify-content: center;
   min-height: 29px;
-  border: 1px solid red;
   color: white;
   font-family: Trebuchet, sans-serif;
   font-weight: 400;
   font-size: 13px;
-  
- 
 }
-/*.card:before {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 0; left: 0;*/
-/*  border-top: 80px solid white;*/
-/*  border-left: 80px solid transparent;*/
-/*  width: 0;*/
+
+.card-info__title {
+  margin: 5px 0 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.card-info__subtitle {
+  font-size: 24px;
+  line-height: 100%;
+  margin: 0 0 15px 0;
+  font-weight: bold;
+}
+
+.card-info__slogan {
+  color: #666666;
+  position: relative;
+}
+
+.card-info__slogan:hover.card-info__slogan:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  content: 'mkmkm';
+}
+
+/*.card-info__slogan:after:hover {*/
+
 /*}*/
 
-.card-info__weight {
+.card-info__options {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  color: #666666;
+}
+
+.card-info__options_accent {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.weight-icon {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,9 +106,22 @@
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  background-color: #D91667;
+  background-color: #d91667;
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: 12px;
+  right: 12px;
   color: white;
 }
+
+.weight-icon__quantity {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.weight-icon__unit {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+

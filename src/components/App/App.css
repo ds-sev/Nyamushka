@@ -1,4 +1,4 @@
-.page {
+.main-page {
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -7,6 +7,13 @@
   background-position: center;
 }
 
+.main-page__slogan {
+  text-align: center;
+  font-family: Exo, sans-serif;
+  font-size: 36px;
+  font-weight: 200;
+  color: #fff;
+}
 /*.page::after {*/
 /*  position: absolute;*/
 /*  top: 0;*/
