@@ -15,7 +15,7 @@
   background-image: url('../../images/Photo-min.png');
   background-repeat: no-repeat;
   background-position: top 200px left -30px;
-  border: 4px solid #e52e7a;
+  border: 4px solid #1698D9;
   border-radius: 12px;
   /*overflow: hidden;*/
   clip-path: polygon(
@@ -25,12 +25,25 @@
             /*bottom right 2*/ 100% 100%,
             /*bottom right 2*/ 0 100%,
             /*bottom left*/ 0% 42px
-  );
   
+  
+  
+  );
+}
+.card__info-container:hover  {
+  cursor: pointer;
+  border-color: #2EA8E6;
+}
+.card__info-container:hover:after  {
+  cursor: pointer;
+  border-color: #2EA8E6;
+}
+.card__info-container:hover .weight-icon  {
+  background-color: #2EA8E6;
 }
 
 .card__info-container:after {
-  border-top: 5px solid #e52e7a;
+  border-top: 5px solid #1698D9;
   position: absolute;
   content: '';
   top: 10px;
@@ -41,9 +54,96 @@
   background-color: transparent;
 }
 
+
+/* ACTIVE STATE */
+.card__info-container_active {
+  border-color: #D91667;
+}
+
+.card__info-container_active:hover {
+  border-color: #E52E7A;
+}
+
+.card__info-container_active:after {
+  border-top-color: #D91667;
+}
+.card__info-container_active:hover:after {
+  border-top-color: #E52E7A;
+}
+
+.card__info-container:hover .weight-icon_active  {
+  background-color: #E52E7A;
+}
+
+.card__info-container:hover .card-info__slogan_active:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  content: 'Котэ не одобряет?';
+  color: #E62E7A;
+}
+
+/* DISABLED */
+.card__info-container_disabled {
+  color: #B3B3B3!important;
+  border-color: #B3B3B3;
+  
+  filter: grayscale(30%) brightness(110%);
+
+  pointer-events: none;
+  
+  
+  
+}
+
+
+.card__info-container_disabled .weight-icon {
+  background-color: #B3B3B3;
+}
+
+.card__info-container_disabled:after {
+  position: absolute;
+  content: '';
+  border-top: 5px solid  #B3B3B3;
+}
+
+/*.card__info-container_disabled:before {*/
+/*  position: absolute;*/
+/*  content: '';*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  z-index: 4;*/
+/*  border: 1px solid red;*/
+/*  background-color: #2ea8e6;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 .card-info__container {
   margin: 17px 43px;
 }
+
+.card-info__container_overlay {
+  border: 1px solid red;
+  background-color: #2ea8e6;
+  opacity: 0.6;
+  z-index: 100;
+}
+
+
+
 
 .card__description {
   display: flex;
@@ -51,10 +151,30 @@
   justify-content: center;
   min-height: 29px;
   color: white;
-  font-family: Trebuchet, sans-serif;
+  font-family: Trebuchet MS, sans-serif;
   font-weight: 400;
   font-size: 13px;
 }
+
+.card__description_out-of-stock {
+  color: #FFFF66;
+}
+
+.card__description_accent {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px dashed;
+  line-height: 100%;
+  color: #1698D9;
+}
+
+.card__description_accent:hover {
+  cursor: pointer;
+  color: #22A7E9;
+}
+
 
 .card-info__title {
   margin: 5px 0 0;
@@ -70,17 +190,11 @@
 }
 
 .card-info__slogan {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   color: #666666;
   position: relative;
-}
-
-.card-info__slogan:hover.card-info__slogan:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-color: white;
-  content: 'mkmkm';
 }
 
 /*.card-info__slogan:after:hover {*/
@@ -106,12 +220,22 @@
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  background-color: #d91667;
+  background-color: #1698D9;
   position: absolute;
   bottom: 12px;
   right: 12px;
   color: white;
 }
+
+.weight-icon_active {
+  background-color: #D91667;
+}
+
+.weight-icon_active:hover {
+  background-color: #E52E7A;
+}
+
+
 
 .weight-icon__quantity {
   font-family: 'Trebuchet MS', sans-serif;
