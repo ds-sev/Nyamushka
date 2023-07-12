@@ -1,25 +1,57 @@
 import './Card.css'
 import cat from '../../images/Photo-min.png'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function Card({ cardData }) {
 
   const [isSelected, setIsSelected] = useState(false)
+  const [isInitialSelect, setIsInitialSelect] = useState(true)
 
-  console.log(isSelected)
-
-  function handleCardClick() {
+  function handleCardClick(evt) {
     setIsSelected(!isSelected)
+    if (isSelected && isInitialSelect) {
+      setIsInitialSelect(true)
+    } else {
+    }
+    !isSelected && setIsInitialSelect(true)
+  }
+
+  function handleButtonClick() {
+    setIsSelected(!isSelected)
+    setIsInitialSelect(false)
+    // !isSelected && setIsInitialSelect(true)
+  }
+
+  let initialSelect = useRef(true)
+
+  // useEffect(() => {
+  //   if (initialSelect) {
+  //     console.log('start')
+  //
+  //   } else {
+  //     console.log('finish')
+  //     initialSelect = true
+  //   }
+  // }, [isSelected, isInitialSelect])
+
+  function handleMouseOut() {
+
+    if (isSelected) {
+      if (isInitialSelect) {
+        setIsInitialSelect(false)
+      }
+    }
   }
 
   return (
 
     <div className="card card__container">
-      <div className={`card__info-container card-info ${isSelected && 'card__info-container_active'} ${cardData.stock === 0 && 'card__info-container_disabled'}`}
-           onClick={handleCardClick}>
+      <div  onMouseLeave={handleMouseOut} onClick={handleCardClick} className={`card__info-container card-info ${isSelected && 'card__info-container_active'} ${cardData.stock === 0 && 'card__info-container_disabled'}
+${isSelected && isInitialSelect ? 'card__info-container_no-hover' : ''} 
+        `}
+            >
         <div className={`card-info__container`}>
-          <p className={`card-info__slogan ${isSelected && 'card-info__slogan_active'}`}>Сказочное
-            заморское яство</p>
+          <p className={`card-info__slogan ${isSelected && !isInitialSelect && 'card-info__slogan_active'}`}>Сказочное заморское яство</p>
           <h3 className="card-info__title">Нямушка</h3>
           <p className="card-info__subtitle">{cardData.title}</p>
           <p className="card-info__options">
@@ -47,7 +79,7 @@ function Card({ cardData }) {
               : (
                 <p className="card__description">Чего сидишь? Порадуй котэ,&ensp;
                   <button className="card__description_accent"
-                          onClick={handleCardClick}>купи
+                          onClick={handleButtonClick}>купи
                   </button>
                   <span className="card__description_accent"
                         style={{ borderBottomColor: 'transparent' }}>.</span></p>

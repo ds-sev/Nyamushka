@@ -5,7 +5,7 @@ function App() {
 
   return (
     <main className="main-page">
-      <p className="main-page__slogan">Ты сегодня покормил кота?</p>
+      <p className="main-page__title">Ты сегодня покормил кота?</p>
       <CardList />
     </main>
   )

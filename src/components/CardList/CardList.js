@@ -3,7 +3,7 @@ import './CardList.css'
 import assortment from '../../utils/assortment'
 
 function CardList() {
-  console.log(assortment[0].id)
+
 
   return (
 

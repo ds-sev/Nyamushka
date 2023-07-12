@@ -4,7 +4,7 @@
   flex-grow: 1;
   /*position: relative;*/
   width: 320px;
-  height: 511px;
+  height: 509px;
   
 }
 
@@ -60,13 +60,16 @@
   border-color: #D91667;
 }
 
-.card__info-container_active:hover {
-  border-color: #E52E7A;
-}
-
 .card__info-container_active:after {
   border-top-color: #D91667;
 }
+
+.card__info-container_active:hover {
+
+  border-color: #E62E7A;
+}
+
+
 .card__info-container_active:hover:after {
   border-top-color: #E52E7A;
 }
@@ -74,6 +77,22 @@
 .card__info-container:hover .weight-icon_active  {
   background-color: #E52E7A;
 }
+
+/* selected card hover */
+.card-info__slogan_active:after {
+  opacity: 0;
+  animation: text-animation-in .2s forwards;
+}
+@keyframes text-animation-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes text-animation-out {
+  100% {opacity: 1;}
+  0% {opacity: 0;}
+}
+
 
 .card__info-container:hover .card-info__slogan_active:after {
   position: absolute;
@@ -85,18 +104,52 @@
   color: #E62E7A;
 }
 
+
+
+
+
+.card__info-container_no-hover {
+  /*pointer-events: painted;*/
+  border-color: #D91667!important;
+  /*cursor: pointer;*/
+}
+
+.card__info-container_no-hover.card__info-container_active:after {
+  border-top-color: #D91667!important;
+}
+
+.card__info-container_no-hover .weight-icon_active {
+  background-color: #D91667!important;
+}
+
+
+
+
+
+
+
+
+
+
 /* DISABLED */
 .card__info-container_disabled {
   color: #B3B3B3!important;
   border-color: #B3B3B3;
   
-  filter: grayscale(30%) brightness(110%);
+  /*filter: grayscale(30%) brightness(110%);*/
 
   pointer-events: none;
   
   
   
+  
+  
+  
 }
+
+
+
+
 
 
 .card__info-container_disabled .weight-icon {
@@ -132,7 +185,7 @@
 
 
 .card-info__container {
-  margin: 17px 43px;
+  margin: 17px 46px;
 }
 
 .card-info__container_overlay {
@@ -151,9 +204,11 @@
   justify-content: center;
   min-height: 29px;
   color: white;
-  font-family: Trebuchet MS, sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
+  line-height: 110%;
   font-weight: 400;
   font-size: 13px;
+  letter-spacing: 0.03px;
 }
 
 .card__description_out-of-stock {
@@ -161,6 +216,7 @@
 }
 
 .card__description_accent {
+
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -177,7 +233,7 @@
 
 
 .card-info__title {
-  margin: 5px 0 0;
+  margin: 7px 0 0;
   font-size: 48px;
   font-weight: 700;
 }
@@ -185,25 +241,23 @@
 .card-info__subtitle {
   font-size: 24px;
   line-height: 100%;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   font-weight: bold;
 }
 
 .card-info__slogan {
   font-family: "Trebuchet MS", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   position: relative;
 }
 
-/*.card-info__slogan:after:hover {*/
-
-/*}*/
-
 .card-info__options {
   font-family: 'Trebuchet MS', sans-serif;
+  font-size: 14px;
   font-weight: 400;
+  line-height: 100%;
   color: #666666;
 }
 
@@ -225,9 +279,11 @@
   bottom: 12px;
   right: 12px;
   color: white;
+  transition: ease-in background-color .15s;
 }
 
 .weight-icon_active {
+  transition: ease-in background-color .15s;
   background-color: #D91667;
 }
 
@@ -238,14 +294,18 @@
 
 
 .weight-icon__quantity {
+  margin-top: 7px;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 42px;
   font-weight: 400;
+  line-height: 85%;
+  
 }
 
 .weight-icon__unit {
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 21px;
   font-weight: 400;
+  line-height: 100%;
 }
 

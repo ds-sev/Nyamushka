@@ -1,13 +1,14 @@
 .main-page {
-  position: relative;
+position: relative;
+
   width: 100%;
   min-height: 100%;
-  background-color: aqua;
-  background-image: url('../../images/Pattern@2x-min.png');
-  background-position: center;
+  /*background-image: url('../../images/Pattern-min.png');*/
+  background: linear-gradient(black, transparent, black), url('../../images/Pattern-min.png') center;
 }
 
-.main-page__slogan {
+.main-page__title {
+  padding-top: 36px;
   margin-bottom: 24px;
   text-align: center;
   font-family: Exo, sans-serif;
@@ -15,18 +16,16 @@
   font-weight: 200;
   color: #fff;
 }
-/*.page::after {*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  content: '';*/
-/*  background: linear-gradient(black, transparent, black);*/
-/*}*/
 
+@media screen and (max-width: 544px) {
+  .main-page__title {
+    font-size: 28px;
+  }
+}
 
+@media screen and (max-width: 360px) {
+  .main-page__title {
+    font-size: 24px;
+  }
+}
 
-/*@media screen {*/
-/*  background-image: ;*/
-/*}*/
