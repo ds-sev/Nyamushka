@@ -3,10 +3,7 @@ import './CardList.css'
 import assortment from '../../utils/assortment'
 
 function CardList() {
-
-
   return (
-
     <ul className="cards-list">
       {
         assortment.map((item) => (
@@ -18,7 +15,6 @@ function CardList() {
         ))
       }
     </ul>
-
   )
 }
 

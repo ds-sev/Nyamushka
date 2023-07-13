@@ -5,7 +5,9 @@ const assortment = [
     stock: 0,
     weight: '0,5',
     quantity: 10,
-    bonus: {quantity: 1, text: 'мышь в подарок'},
+    bonus: {
+      quantity: 1, text: 'мышь в подарок'
+    },
     description: 'Печень утки разварная с артишоками.'
   },
   {
@@ -14,7 +16,9 @@ const assortment = [
     stock: 42,
     weight: '2',
     quantity: 40,
-    bonus: {quantity: 2, text: 'мыши в подарок'},
+    bonus: {
+      quantity: 2, text: 'мыши в подарок'
+    },
     description: 'Головы щучьи с чесноком да свежайшая сёмгушка.'
   },
   {
@@ -23,8 +27,9 @@ const assortment = [
     stock: Math.round(Math.random()),
     weight: '5',
     quantity: 100,
-    bonus: {quantity: 5, text: `мышей в подарок
-      заказчик доволен`},
+    bonus: {
+      quantity: 5, text: 'мышей в подарок заказчик доволен'
+    },
     description: 'Филе из цыплят с трюфелями в бульоне.'
   }
 ]

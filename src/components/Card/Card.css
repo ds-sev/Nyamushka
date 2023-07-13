@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /*position: relative;*/
   width: 320px;
   height: 509px;
-  
 }
 
 .card__info-container {
@@ -15,9 +13,8 @@
   background-image: url('../../images/Photo-min.png');
   background-repeat: no-repeat;
   background-position: top 200px left -30px;
-  border: 4px solid #1698D9;
+  border: 4px solid #1698d9;
   border-radius: 12px;
-  /*overflow: hidden;*/
   clip-path: polygon(
     /*top left 1*/ 42px 0%,
             /*top left 2*/ 100% 0,
@@ -25,57 +22,61 @@
             /*bottom right 2*/ 100% 100%,
             /*bottom right 2*/ 0 100%,
             /*bottom left*/ 0% 42px
-  
-  
-  
   );
+  transition: ease-in border-bottom-color .15s,
+              ease-in border-right-color .15s,
+              ease-in border-top-color .15s,
+              ease-in border-left-color .15s;
 }
-.card__info-container:hover  {
+
+.card__info-container:hover {
   cursor: pointer;
-  border-color: #2EA8E6;
+  border-color: #2ea8e6;
 }
-.card__info-container:hover:after  {
+
+.card__info-container:hover:after {
   cursor: pointer;
-  border-color: #2EA8E6;
+  border-color: #2ea8e6;
 }
-.card__info-container:hover .weight-icon  {
-  background-color: #2EA8E6;
+
+.card__info-container:hover .weight-icon {
+  background-color: #2ea8e6;
 }
 
 .card__info-container:after {
-  border-top: 5px solid #1698D9;
+  border-top: 5px solid #1698d9;
   position: absolute;
   content: '';
-  top: 10px;
-  left: 0;
-  width: 82px;
-  height: 82px;
+  top: 7px;
+  left: 9px;
+  width: 58px;
+  height: 58px;
   rotate: -45deg;
   background-color: transparent;
+  transition: ease-in border-top-color .15s;
 }
-
 
 /* ACTIVE STATE */
 .card__info-container_active {
-  border-color: #D91667;
+  border-color: #d91667;
+  transition: ease-in border-bottom-color .15s, ease-in border-right-color .15s, ease-in border-top-color .15s, ease-in border-left-color .15s;
 }
 
 .card__info-container_active:after {
-  border-top-color: #D91667;
+  border-top-color: #d91667;
 }
 
 .card__info-container_active:hover {
-
-  border-color: #E62E7A;
+  
+  border-color: #e62e7a;
 }
-
 
 .card__info-container_active:hover:after {
-  border-top-color: #E52E7A;
+  border-top-color: #e52e7a;
 }
 
-.card__info-container:hover .weight-icon_active  {
-  background-color: #E52E7A;
+.card__info-container:hover .weight-icon_active {
+  background-color: #e52e7a;
 }
 
 /* selected card hover */
@@ -83,16 +84,15 @@
   opacity: 0;
   animation: text-animation-in .2s forwards;
 }
+
 @keyframes text-animation-in {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-@keyframes text-animation-out {
-  100% {opacity: 1;}
-  0% {opacity: 0;}
-}
-
 
 .card__info-container:hover .card-info__slogan_active:after {
   position: absolute;
@@ -101,88 +101,52 @@
   width: 100%;
   background-color: white;
   content: 'Котэ не одобряет?';
-  color: #E62E7A;
+  color: #e62e7a;
 }
 
-
-
-
-
 .card__info-container_no-hover {
-  /*pointer-events: painted;*/
-  border-color: #D91667!important;
-  /*cursor: pointer;*/
+  border-color: #d91667 !important;
 }
 
 .card__info-container_no-hover.card__info-container_active:after {
-  border-top-color: #D91667!important;
+  border-top-color: #d91667 !important;
 }
 
 .card__info-container_no-hover .weight-icon_active {
-  background-color: #D91667!important;
+  background-color: #d91667 !important;
 }
-
-
-
-
-
-
-
-
-
 
 /* DISABLED */
 .card__info-container_disabled {
-  color: #B3B3B3!important;
-  border-color: #B3B3B3;
-  
-  /*filter: grayscale(30%) brightness(110%);*/
-
+  color: #b3b3b3 !important;
+  border-color: #b3b3b3;
   pointer-events: none;
-  
-  
-  
-  
-  
-  
 }
 
-
-
-
-
+.card__info-container_disabled:before {
+  border-radius: 8px;
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  z-index: 1;
+  opacity: .5;
+}
 
 .card__info-container_disabled .weight-icon {
-  background-color: #B3B3B3;
+  background-color: #b3b3b3;
+  z-index: 2;
 }
 
 .card__info-container_disabled:after {
   position: absolute;
   content: '';
-  border-top: 5px solid  #B3B3B3;
+  z-index: 10;
+  border-top: 5px solid #b3b3b3;
 }
-
-/*.card__info-container_disabled:before {*/
-/*  position: absolute;*/
-/*  content: '';*/
-/*  top: 0;*/
-/*  right: 0;*/
-/*  z-index: 4;*/
-/*  border: 1px solid red;*/
-/*  background-color: #2ea8e6;*/
-/*}*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 .card-info__container {
   margin: 17px 46px;
@@ -191,12 +155,9 @@
 .card-info__container_overlay {
   border: 1px solid red;
   background-color: #2ea8e6;
-  opacity: 0.6;
+  opacity: .2;
   z-index: 100;
 }
-
-
-
 
 .card__description {
   display: flex;
@@ -212,25 +173,23 @@
 }
 
 .card__description_out-of-stock {
-  color: #FFFF66;
+  color: #ffff66;
 }
 
 .card__description_accent {
-
   margin: 0;
   padding: 0;
   background-color: transparent;
   border: none;
   border-bottom: 1px dashed;
   line-height: 100%;
-  color: #1698D9;
+  color: #1698d9;
 }
 
 .card__description_accent:hover {
   cursor: pointer;
-  color: #22A7E9;
+  color: #22a7e9;
 }
-
 
 .card-info__title {
   margin: 7px 0 0;
@@ -246,7 +205,7 @@
 }
 
 .card-info__slogan {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #666666;
@@ -254,10 +213,11 @@
 }
 
 .card-info__options {
+  max-width: 130px;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 110%;
   color: #666666;
 }
 
@@ -274,7 +234,7 @@
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  background-color: #1698D9;
+  background-color: #1698d9;
   position: absolute;
   bottom: 12px;
   right: 12px;
@@ -284,14 +244,12 @@
 
 .weight-icon_active {
   transition: ease-in background-color .15s;
-  background-color: #D91667;
+  background-color: #d91667;
 }
 
 .weight-icon_active:hover {
-  background-color: #E52E7A;
+  background-color: #e52e7a;
 }
-
-
 
 .weight-icon__quantity {
   margin-top: 7px;
@@ -299,7 +257,6 @@
   font-size: 42px;
   font-weight: 400;
   line-height: 85%;
-  
 }
 
 .weight-icon__unit {
@@ -307,5 +264,19 @@
   font-size: 21px;
   font-weight: 400;
   line-height: 100%;
+}
+
+@media screen and (max-width: 340px) {
+  .card__container {
+    width: 300px;
+    height: 470px;
+  }
+  
+  .card__info-container:after {
+    top: 5px;
+    left: 15px;
+    width: 55px;
+    height: 70px;
+  }
 }
 

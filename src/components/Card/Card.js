@@ -1,6 +1,5 @@
 import './Card.css'
-import cat from '../../images/Photo-min.png'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 function Card({ cardData }) {
 
@@ -19,23 +18,9 @@ function Card({ cardData }) {
   function handleButtonClick() {
     setIsSelected(!isSelected)
     setIsInitialSelect(false)
-    // !isSelected && setIsInitialSelect(true)
   }
 
-  let initialSelect = useRef(true)
-
-  // useEffect(() => {
-  //   if (initialSelect) {
-  //     console.log('start')
-  //
-  //   } else {
-  //     console.log('finish')
-  //     initialSelect = true
-  //   }
-  // }, [isSelected, isInitialSelect])
-
   function handleMouseOut() {
-
     if (isSelected) {
       if (isInitialSelect) {
         setIsInitialSelect(false)
@@ -44,14 +29,18 @@ function Card({ cardData }) {
   }
 
   return (
-
     <div className="card card__container">
-      <div  onMouseLeave={handleMouseOut} onClick={handleCardClick} className={`card__info-container card-info ${isSelected && 'card__info-container_active'} ${cardData.stock === 0 && 'card__info-container_disabled'}
-${isSelected && isInitialSelect ? 'card__info-container_no-hover' : ''} 
-        `}
-            >
+      <div className={`card__info-container card-info 
+           ${isSelected && 'card__info-container_active'} 
+           ${cardData.stock === 0 && 'card__info-container_disabled'}
+           ${isSelected && isInitialSelect
+        ? 'card__info-container_no-hover'
+        : ''}`}
+           onMouseLeave={handleMouseOut}
+           onClick={handleCardClick}>
         <div className={`card-info__container`}>
-          <p className={`card-info__slogan ${isSelected && !isInitialSelect && 'card-info__slogan_active'}`}>Сказочное заморское яство</p>
+          <p className={`card-info__slogan ${isSelected && !isInitialSelect && 'card-info__slogan_active'}`}>
+            Сказочное заморское яство</p>
           <h3 className="card-info__title">Нямушка</h3>
           <p className="card-info__subtitle">{cardData.title}</p>
           <p className="card-info__options">
@@ -67,7 +56,6 @@ ${isSelected && isInitialSelect ? 'card__info-container_no-hover' : ''}
             <p className="weight-icon__unit">кг</p>
           </div>
         </div>
-        {/*<img src={cat} alt="кот породы Британская длинношерстная" />*/}
       </div>
       {cardData.stock === 0
         ? (
