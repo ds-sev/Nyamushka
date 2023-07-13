@@ -1,7 +1,7 @@
 {
-  "name": "Nyamushka",
+  "name": "nyamushka",
   "version": "1.0.0",
-  "homepage": "https://ds-sev.github.io/Nyamushka",
+  "homepage": "https://ds-sev.github.io/nyamushka",
   "description": "funBox_test-task",
   "main": "src/index.js",
   "author": "Dmitry Litvinenko",
